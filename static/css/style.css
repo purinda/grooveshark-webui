@@ -1,0 +1,25 @@
+/* CSS Styles */
+.main {
+    padding-top: 80px;
+}
+
+.volume {
+    margin-top: 15px;
+    width: 50px;
+}
+
+.search-result-col-1, .playlist-col-1 {
+    width: auto;
+}
+
+.search-result-col-2, .playlist-col-2 {
+    width: 30%;
+}
+
+.search-result-col-3 {
+    width: 75px;
+}
+
+.playlist-col-3 {
+    width: 150px;
+}
