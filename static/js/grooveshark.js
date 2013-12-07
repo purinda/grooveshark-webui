@@ -1,3 +1,28 @@
+// http://remysharp.com/2010/07/21/throttling-function-calls/
+function throttle(fn, threshhold, scope) {
+    threshhold || (threshhold = 250);
+    var last,
+    deferTimer;
+    return function () {
+        var context = scope || this;
+
+        var now = +new Date,
+        args    = arguments;
+
+        if (last && now < last + threshhold) {
+            // hold on to it
+            clearTimeout(deferTimer);
+            deferTimer = setTimeout(function () {
+                last = now;
+                fn.apply(context, args);
+            }, threshhold);
+        } else {
+            last = now;
+            fn.apply(context, args);
+        }
+    };
+}
+
 var grooveshark = {
 
     searchResults: [],
@@ -45,6 +70,30 @@ var grooveshark = {
             type : "post",
             data : {
                 'song': song
+            }
+        });
+    },
+
+    pauseSong: function(song) {
+        return $.ajax({
+            url  : "main/pause",
+            type : "post"
+        });
+    },
+
+    stopSong: function(song) {
+        return $.ajax({
+            url  : "main/stop",
+            type : "post"
+        });
+    },
+
+    setVol: function(vol) {
+        return $.ajax({
+            url  : "main/volume",
+            type : "post",
+            data : {
+                'vol' : vol
             }
         });
     },
@@ -108,4 +157,23 @@ $(document).ready(function() {
         grooveshark.playSong(song);
     });
 
+    // Pause song
+    $('button.btn-pause').on('click', function(e) {
+        grooveshark.pauseSong();
+    });
+
+    // Play, paused song
+    $('button.btn-play-paused').on('click', function(e) {
+        grooveshark.playSong('');
+    });
+
+    // Stop
+    $('button.btn-stop').on('click', function(e) {
+        grooveshark.stopSong('');
+    });
+
+    // Change volume
+    $('input.volume').on('change', throttle(function(e) {
+        grooveshark.setVol($(e.target).val());
+    }, 2000));
 });

@@ -30,13 +30,13 @@
                 <form class="navbar-form navbar-nav">
                     <div class="form-group">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-danger">
+                            <button type="button" class="btn btn-default btn-danger btn-stop">
                                 <span class="glyphicon glyphicon-stop"></span>
                             </button>
-                            <button type="button" class="btn btn-default btn-warning">
+                            <button type="button" class="btn btn-default btn-warning btn-pause">
                                 <span class="glyphicon glyphicon-pause"></span>
                             </button>
-                            <button type="button" class="btn btn-default btn-success">
+                            <button type="button" class="btn btn-default btn-success btn-play-paused">
                                 <span class="glyphicon glyphicon-play"></span>
                             </button>
                         </div>
@@ -44,12 +44,12 @@
                 </form>
                 <!-- Vol -->
                 <input class="volume" type="range" value="10" min="0" max="10">
-                <form class="navbar-form navbar-right">
+                <div class="navbar-form navbar-right">
                     <div class="form-group">
                         <input id="search-query" type="text" placeholder="Search for any music" class="form-control">
                     </div>
                     <button type="button" class="btn btn-success" id="btn-search" data-toggle="modal" data-target="#dialog-search-results">Search</button>
-                </form>
+                </div>
             </div><!--/.navbar-collapse -->
         </div>
     </div>

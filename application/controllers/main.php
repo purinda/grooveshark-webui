@@ -7,6 +7,8 @@ class main extends Controller
     protected $playlist          = array();
     protected $current_song_id   = null;
 
+    protected $volume_mul_factor = 10;
+
     public function __construct()
     {
         // Load session based playlist
@@ -49,8 +51,26 @@ class main extends Controller
         $this->session->set('playlist', $this->playlist);
     }
 
-    public function play() {
-        $song = $_POST['song'];
-        $this->grooveshark_model->playSong($song['SongID']);
+    public function play($paused = false) {
+        $song   = $_POST['song'];
+        $songId = $song['SongID'];
+
+        if ($paused) {
+            $songId = null;
+        }
+
+        $this->grooveshark_model->playSong($songId);
+    }
+
+    public function pause() {
+        $this->grooveshark_model->pauseSong();
+    }
+
+    public function stop() {
+        $this->grooveshark_model->stopSong();
+    }
+
+    public function volume() {
+        $this->grooveshark_model->setVolume($this->volume_mul_factor * (int)$_POST['vol']);
     }
 }
