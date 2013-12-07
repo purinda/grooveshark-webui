@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Project Name Here!</a>
+                <a class="navbar-brand" href="#">Grooveshark Remote</a>
             </div>
             <div class="navbar-collapse collapse">
                 <form class="navbar-form navbar-nav">
