@@ -6,11 +6,11 @@ This application is developed using PIP, a tiny MVC framework for PHP.
 Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) for more information and documentation.
 
 #Screenshots
-![Front Page](https://github.com/purinda/grooveshark-webui/tree/master/screenshots/frontpage.png)
+![Front Page](https://raw.github.com/purinda/grooveshark-webui/master/screenshots/frontpage.png)
 
-![Top Navigation Menu](https://github.com/purinda/grooveshark-webui/tree/master/screenshots/navmenu.png)
+![Top Navigation Menu](https://raw.github.com/purinda/grooveshark-webui/master/screenshots/navmenu.png)
 
-![Search Results](https://github.com/purinda/grooveshark-webui/tree/master/screenshots/search_results.png)
+![Search Results](https://raw.github.com/purinda/grooveshark-webui/master/screenshots/search_results.png)
 
 #Todo
  - Add a database for persistant playlists
