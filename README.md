@@ -13,6 +13,9 @@ Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) for mo
  - Add a database for persistant playlists
  - Implement votes for songs, so songs in the playlist will be played frequently based on popularity of the song.
 
+#Demo
+[![Demo using a Raspberry Pi](http://theredblacktree.files.wordpress.com/2013/12/screenshot-from-2013-12-09-002915.png)](https://www.youtube.com/watch?v=hrwOu0XkkJg)
+
 #Screenshots
 ![Front Page](https://raw.github.com/purinda/grooveshark-webui/master/screenshots/frontpage.png)
 
