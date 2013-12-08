@@ -12,6 +12,9 @@ $config['db_password']             = ''; // Database password
 
 $config['tinysong_apikey']         = '15b33a3af72bd771e6013c54f26304a0';
 
-$config['grooveshark_player_ip']   = '10.10.0.10';
-// $config['grooveshark_player_port'] = '16444';
+// Raspberry PI
+$config['grooveshark_player_ip']   = '10.10.0.20';
+// Dev box
+// $config['grooveshark_player_ip']   = '10.10.0.10';
+
 $config['grooveshark_player_port'] = '16444';

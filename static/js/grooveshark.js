@@ -153,7 +153,8 @@ $(document).ready(function() {
 
     // Play song
     $('#playlist').delegate('button.btn-play', 'click', function(e) {
-        var song = $(e.target).parents('tr').data('song');
+        var tr   = $(e.target).parents('tr');
+        var song = tr.data('song');
         grooveshark.playSong(song);
     });
 

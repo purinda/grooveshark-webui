@@ -46,7 +46,7 @@
                 <input class="volume" type="range" value="10" min="0" max="10">
                 <div class="navbar-form navbar-right">
                     <div class="form-group">
-                        <input id="search-query" type="text" placeholder="Search for any music" class="form-control">
+                        <input id="search-query" type="text" placeholder="Search for music..." class="form-control">
                     </div>
                     <button type="button" class="btn btn-success" id="btn-search" data-toggle="modal" data-target="#dialog-search-results">Search</button>
                 </div>
