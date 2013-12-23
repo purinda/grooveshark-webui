@@ -12,14 +12,14 @@ class main extends Controller
     public function __construct()
     {
         // Load session based playlist
-        $this->session           = $this->loadHelper('session_helper');
-        if ($this->session->exists('playlist')) {
-            $this->playlist          = $this->session->get('playlist');
-        }
+        $this->session = $this->loadHelper('session_helper');
 
         $this->loadPlugin('tinysong');
         $this->loadPlugin('simplesocket');
         $this->grooveshark_model = $this->loadModel('grooveshark_model');
+        $this->playlist_model    = $this->loadModel('playlist_model');
+
+        $this->playlist = $this->playlist_model->getSongs();
     }
 
     public function index()
@@ -45,10 +45,21 @@ class main extends Controller
     public function playlist($action)
     {
         $song = $_POST['song'];
-        $this->playlist[$song['SongID']] = $song;
+
+        switch (strtoupper($action)) {
+            case 'ADD':
+                $this->addSong($song);
+                break;
+            default:
+        }
 
         // Save modified playlist back to session
         $this->session->set('playlist', $this->playlist);
+    }
+
+    public function addSong(array $song) {
+        // Add the song to the db
+        $this->playlist_model->addSong($song);
     }
 
     public function play($paused = false) {
