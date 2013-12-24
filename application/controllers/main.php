@@ -63,14 +63,15 @@ class main extends Controller
     }
 
     public function play($paused = false) {
-        $song   = $_POST['song'];
-        $songId = $song['SongID'];
+        $song    = $_POST['song'];
+        $song_id = $song['song_id'];
 
+        var_dump($song_id);
         if ($paused) {
-            $songId = null;
+            $song_id = null;
         }
 
-        $this->grooveshark_model->playSong($songId);
+        $this->grooveshark_model->playSong($song_id);
     }
 
     public function pause() {

@@ -8,7 +8,7 @@ class Grooveshark_model extends Model
     public function __construct() {
         global $config;
         $this->tinysong      = new Tinysong($config['tinysong_apikey']);
-        // $this->active_socket = new SimpleSocket($config['grooveshark_player_ip'], $config['grooveshark_player_port']);
+        $this->active_socket = new SimpleSocket($config['grooveshark_player_ip'], $config['grooveshark_player_port']);
     }
 
     public function getSongs($query) {

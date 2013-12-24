@@ -10,14 +10,16 @@
                     <thead>
                         <th class="playlist-col-1">Song</th>
                         <th class="playlist-col-2">Artist</th>
+                        <th class="playlist-col-1">Popularity</th>
                         <th class="playlist-col-3"></th>
                     </thead>
                     <tbody>
                     <?php
                         foreach ($playlist as $song_id => $song) {
-                            echo '<tr data-songid="' . $song['SongID'] . '" ' . 'data-song="' . htmlentities(json_encode($song)) . '">';
-                            echo '<td>' . $song['SongName'] . '</td>';
-                            echo '<td>' . $song['ArtistName'] . '</td>';
+                            echo '<tr data-songid="' . $song->song_id . '" ' . 'data-song="' . htmlentities(json_encode($song)) . '">';
+                            echo '<td>' . $song->name . '</td>';
+                            echo '<td>' . $song->artist . '</td>';
+                            echo '<td>' . $song->getVotes() . '</td>';
                             echo '<td><div class="btn-group btn-group-sm"><button type="button" class="btn btn-info btn-play"><span class="glyphicon glyphicon-play"></span></button><button type="button" class="btn btn-success btn-thumbs-up"><span class="glyphicon glyphicon-thumbs-up"></span></button><button type="button" class="btn btn-warning btn-thumbs-down"><span class="glyphicon glyphicon-thumbs-down"></span></button></td>';
                             echo '</tr>';
                         }
