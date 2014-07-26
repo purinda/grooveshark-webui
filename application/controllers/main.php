@@ -17,9 +17,21 @@ class main extends Controller
             $this->playlist          = $this->session->get('playlist');
         }
 
-        $this->loadPlugin('tinysong');
-        $this->loadPlugin('simplesocket');
-        $this->grooveshark_model = $this->loadModel('grooveshark_model');
+        try {
+            $this->loadPlugin('tinysong');
+            $this->loadPlugin('simplesocket');
+            $this->grooveshark_model = $this->loadModel('grooveshark_model');
+        } catch(Exception $e) {
+            global $config;
+
+            print <<<TXT
+                Error opening the connection to the server. please make sure Grooveshark server is running at
+                {$config['grooveshark_player_ip']}:{$config['grooveshark_player_port']}
+                <br>
+                Refer to https://github.com/purinda/grooveshark-server
+TXT;
+            die;
+        }
     }
 
     public function index()
